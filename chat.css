@@ -1,0 +1,294 @@
+/* Base Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  font-size: 16px;
+}
+
+header {
+  padding: 10px 20px;
+  background: #4CAF50;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+.chat-section {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.chat-box {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  height: 400px;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.sidebar {
+  width: 200px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  display: none;
+}
+
+.avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Messages */
+.msg {
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 70%;
+  position: relative;
+  word-wrap: break-word;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sent {
+  background: #dcf8c6;
+  margin-left: auto;
+  text-align: right;
+}
+
+.recv {
+  background: #ececec;
+  text-align: left;
+}
+
+.time {
+  font-size: 10px;
+  color: #999;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Adjust time alignment */
+.sent .time {
+  text-align: right;
+}
+
+.recv .time {
+  text-align: left;
+}
+
+/* Reply Preview */
+.reply-preview {
+  font-size: 12px;
+  color: #555;
+  background: #e8e8e8;
+  padding: 5px;
+  border-left: 3px solid #4CAF50;
+  margin-bottom: 5px;
+}
+
+/* Message Actions */
+.msg-actions {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: none;
+  z-index: 10;
+  gap: 5px;
+}
+.msg .msg-actions button  {
+display: none;
+
+}
+.msg:hover .msg-actions button {
+  display: flex;
+}
+
+.msg-actions button {
+  display: flex;
+  background: #25d366;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.msg-actions button:hover {
+  background: #128c7e;
+}
+
+.msg-actions i {
+  font-size: 14px;
+}
+
+/* Form Styles */
+form#send-message-form {
+  max-width: 600px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form#send-message-form input[type="text"] {
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+form#send-message-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #4CAF50;
+  color: #fff;
+}
+
+/* View Members Button */
+#viewMembersBtn {
+  display: none;
+  background: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+}
+.group-icon {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+/* Responsive Tweaks */
+@media (min-width: 768px) {
+  .sidebar {
+    display: block;
+  }
+
+  #viewMembersBtn {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .chat-section {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  #viewMembersBtn {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  header {
+    height: max-content;
+    padding: 15px;
+    box-sizing: border-box; 
+  }
+  .group-icon {
+    max-width: 50px;
+    max-height: 50px;
+    
+  }
+  body,
+  header,
+  .container,
+  .chat-box,
+  .msg,
+  .reply-preview,
+  form#send-message-form input[type="text"],
+  form#send-message-form button {
+    font-size: 10px;
+  }
+
+  .msg-actions button {
+    font-size: 10px;
+  }
+
+  .msg-actions i {
+    font-size: 10px;
+  }
+
+  .modal-content {
+    font-size: 14px;
+  }
+}
+@media (max-width: 250px){
+  body,
+  header,
+  .container,
+  .chat-box,
+  .msg,
+  .reply-preview,
+  form#send-message-form input[type="text"],
+  form#send-message-form button {
+    font-size: 8px;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+  }
+
+  .msg-actions button {
+    font-size: 8px;
+  }
+
+  .msg-actions i {
+    font-size: 8px;
+  }
+
+  .modal-content {
+    font-size: 10px;
+  }
+  .group-info {
+    font-size: 8px;
+  }
+  .group-icon {
+    max-width: 30px;
+    max-height: 30px;
+    
+  }
+}
